@@ -79,9 +79,9 @@ else:
         print("K = " + str(k))
 
         weibula = weibula_gen(alpha, k, 1000)
-        x = np.arange(alpha, 100, 0.1)
-        f = np.array([((alpha/k)*pow((i/k), (alpha-1)))*exp(pow(-(i/k), alpha)) for i in x], dtype=float)
-        #f = np.array([((alpha/k)*(((i)/k)**(alpha-1)))*exp(-(i/k)**alpha) for i in x])
+        x = np.arange(np.min(weibula), np.max(weibula) + 1, 0.1)
+        #f = np.array([((alpha/k)*pow((i/k), (alpha-1)))*exp(pow(-(i/k), alpha)) for i in x], dtype=float)
+        f = np.array([((alpha/k)*(((i)/k)**(alpha-1)))*exp(-(i/k)**alpha) for i in x])
         plt.figure()
         plt.hist(weibula, bins=100, normed=True)
         plt.plot(x, f, 'r-')
