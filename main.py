@@ -36,13 +36,14 @@ else:
         print("Aльфа = " + str(alpha))
         print("K = " + str(k))
 
-        x = np.arange(alpha, 10, 0.1)
+        parito = parito_gen(k, alpha, 1000)  # Generate Parito
+
+        x = np.arange(alpha, np.max(parito), 0.1)
         # f = np.array([((alpha/k)*(((i)/k)**(-(alpha+1)))) for i in x])
         f = np.array([((k * (alpha ** k)) / (i ** (k + 1))) for i in x])
 
-        parito = parito_gen(k, alpha, 1000)  # Generate Parito
-
         plt.figure()
+        print(np.max(parito))
         plt.hist(parito, bins=100, normed=True)
         plt.plot(x, f, 'r-')
         plt.show()
